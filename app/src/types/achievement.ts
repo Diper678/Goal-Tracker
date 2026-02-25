@@ -10,29 +10,33 @@ export interface Achievement {
   icon: string;
 }
 
-export const RARITY_COLORS: Record<RarityType, { border: string; bg: string; glow: string; name: string }> = {
+export const RARITY_COLORS: Record<RarityType, { border: string; bg: string; glow: string; text: string; name: string }> = {
   common: {
-    border: 'border-blue-500',
-    bg: 'bg-blue-900/30',
-    glow: 'shadow-blue-500/50',
-    name: 'Azul'
+    border: 'border-rarity-common',
+    bg: 'bg-rarity-common/15',
+    glow: 'shadow-rarity-common/50',
+    text: 'text-rarity-common',
+    name: 'Común'
   },
   rare: {
-    border: 'border-red-500',
-    bg: 'bg-red-900/30',
-    glow: 'shadow-red-500/50',
-    name: 'Rojo'
+    border: 'border-rarity-rare',
+    bg: 'bg-rarity-rare/15',
+    glow: 'shadow-rarity-rare/50',
+    text: 'text-rarity-rare',
+    name: 'Raro'
   },
   epic: {
-    border: 'border-purple-500',
-    bg: 'bg-purple-900/30',
-    glow: 'shadow-purple-500/50',
-    name: 'Morado'
+    border: 'border-rarity-epic',
+    bg: 'bg-rarity-epic/15',
+    glow: 'shadow-rarity-epic/50',
+    text: 'text-rarity-epic',
+    name: 'Épico'
   },
   legendary: {
-    border: 'border-yellow-400',
-    bg: 'bg-yellow-900/30',
-    glow: 'shadow-yellow-400/50',
-    name: 'Dorado'
+    border: 'border-rarity-legendary',
+    bg: 'bg-rarity-legendary/15',
+    glow: 'shadow-rarity-legendary/50',
+    text: 'text-rarity-legendary',
+    name: 'Legendario'
   }
 };
