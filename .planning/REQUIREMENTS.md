@@ -80,33 +80,33 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DSGN-01 | — | Pending |
-| DSGN-02 | — | Pending |
-| DSGN-03 | — | Pending |
-| IOS-01 | — | Pending |
-| IOS-02 | — | Pending |
-| IOS-03 | — | Pending |
-| IOS-04 | — | Pending |
-| IOS-05 | — | Pending |
-| CARD-01 | — | Pending |
-| CARD-02 | — | Pending |
-| CARD-03 | — | Pending |
-| CARD-04 | — | Pending |
-| CARD-05 | — | Pending |
-| CAT-01 | — | Pending |
-| CAT-02 | — | Pending |
-| CAT-03 | — | Pending |
-| A11Y-01 | — | Pending |
-| A11Y-02 | — | Pending |
-| A11Y-03 | — | Pending |
-| A11Y-04 | — | Pending |
-| FIX-01 | — | Pending |
+| DSGN-01 | Phase 1 | Pending |
+| DSGN-02 | Phase 1 | Pending |
+| FIX-01 | Phase 1 | Pending |
+| IOS-01 | Phase 2 | Pending |
+| IOS-02 | Phase 2 | Pending |
+| IOS-03 | Phase 2 | Pending |
+| IOS-04 | Phase 2 | Pending |
+| IOS-05 | Phase 2 | Pending |
+| CAT-01 | Phase 3 | Pending |
+| CAT-02 | Phase 3 | Pending |
+| CAT-03 | Phase 3 | Pending |
+| CARD-01 | Phase 4 | Pending |
+| CARD-02 | Phase 4 | Pending |
+| CARD-03 | Phase 4 | Pending |
+| CARD-04 | Phase 4 | Pending |
+| CARD-05 | Phase 4 | Pending |
+| DSGN-03 | Phase 4 | Pending |
+| A11Y-01 | Phase 5 | Pending |
+| A11Y-02 | Phase 5 | Pending |
+| A11Y-03 | Phase 5 | Pending |
+| A11Y-04 | Phase 5 | Pending |
 
 **Coverage:**
 - v1.0 requirements: 21 total
-- Mapped to phases: 0
-- Unmapped: 21
+- Mapped to phases: 21
+- Unmapped: 0
 
 ---
 *Requirements defined: 2026-02-25*
-*Last updated: 2026-02-25 after initial definition*
+*Last updated: 2026-02-25 — traceability filled after roadmap creation*
