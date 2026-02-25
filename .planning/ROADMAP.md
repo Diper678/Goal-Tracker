@@ -24,7 +24,11 @@ Transform the functional Goal Tracker baseline into a polished, iOS-optimized ga
   1. User sees the Steam-dark background (#020617), steel-blue surface cards (#0F172A, #1E293B), green accent (#22C55E), and gold legendary color throughout the app
   2. User sees Fira Code font on all headings and stat numbers, and Fira Sans on all body and label text
   3. User does not encounter any horizontal scroll or content overflow when viewing or creating achievements
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Install fonts, configure Steam-dark CSS tokens, Tailwind color/font utilities, update RARITY_COLORS
+- [ ] 01-02-PLAN.md — Restyle all components with Steam-dark tokens, convert form to full-screen sheet, fix horizontal scroll
 
 ### Phase 2: iOS Platform
 **Goal**: The app feels native on iPhone 11 — no UI overlaps the notch or home bar, launch is branded, and all touch targets are comfortable
