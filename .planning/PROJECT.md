@@ -45,6 +45,22 @@ Users can visually track their annual achievements with a satisfying, gaming-ins
 - Light mode — dark-only gaming aesthetic
 - i18n/multi-language — Spanish only
 
+## Current Milestone: v1.0 UI/UX Overhaul
+
+**Goal:** Transform the functional baseline into a polished, iOS-optimized gaming dashboard with modern design system, categories, and accessibility.
+
+**Target features:**
+- iOS optimization (safe areas, splash screens, touch targets, gestures, haptics)
+- UI/UX overhaul: gaming dashboard style (Xbox/PS achievement screens) with subtle retro touches
+- New color palette: Steam-like dark (#020617 bg) + steel blue + green accent + gold legendary
+- Typography upgrade: Fira Code (headings/data) + Fira Sans (body)
+- Replace emoji icons with Lucide SVG icons
+- Achievement categories system (salud, trabajo, personal, etc.)
+- Refined achievement card frames with pixel-art borders as subtle retro accent
+- Smooth animations and transitions (150-300ms, prefers-reduced-motion)
+- Accessibility improvements (contrast 4.5:1, focus states, touch targets 44px+)
+- Responsive optimization for iPhone 11 (375px width, safe areas, notch handling)
+
 ## Context
 
 - **Existing codebase:** React 19 + Vite 5 + Tailwind 3 + shadcn/ui (40+ components) + Lucide React icons
@@ -75,4 +91,4 @@ Users can visually track their annual achievements with a satisfying, gaming-ins
 | iPhone 11 as target device | User's specific device | — Pending |
 
 ---
-*Last updated: 2026-02-23 after initialization*
+*Last updated: 2026-02-25 after milestone v1.0 started*
