@@ -40,7 +40,11 @@ Plans:
   3. User sees the polished 180px app icon on their iOS home screen after adding to home
   4. User cannot trigger the rubber-band overscroll bounce effect when scrolling to the top or bottom
   5. User can tap every button, toggle, and interactive control without needing to aim precisely (all targets 44px+)
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Create trophy SVG icon, generate PNG assets, configure splash screens, update index.html and vite.config
+- [ ] 02-02-PLAN.md — Add safe area insets and overscroll lock CSS, fix touch targets to 44px minimum
 
 ### Phase 3: Categories System
 **Goal**: Users can organize achievements by life area, filter to a single category, and see progress broken down per category
@@ -83,7 +87,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design System Foundation | 2/2 | Complete | 2026-02-27 |
-| 2. iOS Platform | 0/TBD | Not started | - |
+| 2. iOS Platform | 0/2 | Not started | - |
 | 3. Categories System | 0/TBD | Not started | - |
 | 4. Achievement Cards | 0/TBD | Not started | - |
 | 5. Animations & Accessibility | 0/TBD | Not started | - |
