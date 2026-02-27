@@ -8,7 +8,7 @@ Transform the functional Goal Tracker baseline into a polished, iOS-optimized ga
 
 ## Phases
 
-- [ ] **Phase 1: Design System Foundation** - Apply Steam-dark palette, Fira Code/Fira Sans typography, and fix horizontal scroll bug
+- [x] **Phase 1: Design System Foundation** - Apply Steam-dark palette, Fira Code/Fira Sans typography, and fix horizontal scroll bug
 - [ ] **Phase 2: iOS Platform** - Safe areas, splash screens, app icon, overscroll lock, and 44px touch targets
 - [ ] **Phase 3: Categories System** - Data model, category assignment UI, filter, and per-category stats
 - [ ] **Phase 4: Achievement Cards** - Lucide SVG icons, locked/unlocked states, gaming layout, pixel borders, unlock animation
@@ -27,8 +27,8 @@ Transform the functional Goal Tracker baseline into a polished, iOS-optimized ga
 **Plans**: 2 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Install fonts, configure Steam-dark CSS tokens, Tailwind color/font utilities, update RARITY_COLORS
-- [ ] 01-02-PLAN.md — Restyle all components with Steam-dark tokens, convert form to full-screen sheet, fix horizontal scroll
+- [x] 01-01-PLAN.md — Install fonts, configure Steam-dark CSS tokens, Tailwind color/font utilities, update RARITY_COLORS
+- [x] 01-02-PLAN.md — Restyle all components with Steam-dark tokens, convert form to full-screen sheet, fix horizontal scroll
 
 ### Phase 2: iOS Platform
 **Goal**: The app feels native on iPhone 11 — no UI overlaps the notch or home bar, launch is branded, and all touch targets are comfortable
@@ -82,7 +82,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System Foundation | 1/2 | In Progress|  |
+| 1. Design System Foundation | 2/2 | Complete | 2026-02-27 |
 | 2. iOS Platform | 0/TBD | Not started | - |
 | 3. Categories System | 0/TBD | Not started | - |
 | 4. Achievement Cards | 0/TBD | Not started | - |

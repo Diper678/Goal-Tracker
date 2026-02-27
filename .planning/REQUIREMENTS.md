@@ -44,7 +44,7 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 ### Bug Fixes
 
-- [ ] **FIX-01**: User does not experience horizontal scroll overflow when creating achievements
+- [x] **FIX-01**: User does not experience horizontal scroll overflow when creating achievements
 
 ## Future Requirements
 
@@ -82,7 +82,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 1 | Complete |
-| FIX-01 | Phase 1 | Pending |
+| FIX-01 | Phase 1 | Complete |
 | IOS-01 | Phase 2 | Pending |
 | IOS-02 | Phase 2 | Pending |
 | IOS-03 | Phase 2 | Pending |
