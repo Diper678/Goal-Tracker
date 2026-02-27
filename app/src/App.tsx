@@ -47,8 +47,8 @@ function App() {
 
   if (!isLoaded) {
     return (
-      <div className="min-h-screen bg-gray-950 flex items-center justify-center">
-        <div className="text-white text-xl" style={{ fontFamily: 'monospace' }}>
+      <div className="min-h-screen bg-game-bg flex items-center justify-center">
+        <div className="text-game-text text-xl font-mono">
           CARGANDO...
         </div>
       </div>
@@ -56,25 +56,24 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-950 py-8 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-game-bg py-8 px-4">
+      <div className="max-w-[480px] mx-auto">
         {/* Header */}
         <header className="text-center mb-8">
           <div className="inline-flex items-center gap-3 mb-2">
-            <Gamepad2 className="w-10 h-10 text-yellow-400" />
+            <Gamepad2 className="w-10 h-10 text-rarity-legendary" />
             <h1
-              className="text-4xl md:text-5xl font-bold text-white"
+              className="text-4xl md:text-5xl font-bold text-game-text font-mono"
               style={{
-                fontFamily: 'monospace',
                 letterSpacing: '0.1em',
                 textShadow: '4px 4px 0px #000, -2px -2px 0px #ef4444, 2px -2px 0px #3b82f6, -2px 2px 0px #a855f7, 2px 2px 0px #eab308'
               }}
             >
               LOGROS ANUALES
             </h1>
-            <Gamepad2 className="w-10 h-10 text-yellow-400" />
+            <Gamepad2 className="w-10 h-10 text-rarity-legendary" />
           </div>
-          <p className="text-gray-400" style={{ fontFamily: 'monospace' }}>
+          <p className="text-game-text-secondary">
             Define tus logros. Completa tu misión.
           </p>
         </header>
@@ -86,19 +85,18 @@ function App() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           {/* Filter Buttons */}
           <div className="flex items-center gap-2">
-            <Filter className="w-5 h-5 text-gray-400" />
-            <div className="flex bg-gray-900 border-2 border-gray-600">
+            <Filter className="w-5 h-5 text-game-text-secondary" />
+            <div className="flex bg-game-surface border-2 border-game-border">
               {(['all', 'completed', 'pending'] as FilterType[]).map((f) => (
                 <button
                   key={f}
                   onClick={() => setFilter(f)}
                   className={`
-                    px-4 py-2 text-sm transition-all duration-150
+                    px-4 py-2 text-sm font-mono uppercase transition-all duration-150
                     ${filter === f
-                      ? 'bg-blue-600 text-white'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'}
+                      ? 'bg-primary text-white'
+                      : 'text-game-text-secondary hover:text-game-text hover:bg-game-card'}
                   `}
-                  style={{ fontFamily: 'monospace', textTransform: 'uppercase' }}
                 >
                   {f === 'all' ? 'Todos' : f === 'completed' ? 'Completados' : 'Pendientes'}
                 </button>
@@ -109,12 +107,7 @@ function App() {
           {/* Add Button */}
           <button
             onClick={() => setIsFormOpen(true)}
-            className="flex items-center gap-2 px-6 py-3 bg-green-600 border-2 border-green-400 text-white font-bold hover:bg-green-500 transition-all duration-150"
-            style={{
-              fontFamily: 'monospace',
-              letterSpacing: '0.05em',
-              boxShadow: '4px 4px 0px 0px rgba(0,0,0,0.5)'
-            }}
+            className="flex items-center gap-2 px-6 py-3 bg-primary border-2 border-primary/80 text-white font-bold font-mono tracking-wide hover:bg-primary/90 transition-all duration-150 shadow-lg shadow-black/30"
           >
             <Plus className="w-5 h-5" />
             NUEVO LOGRO
@@ -136,9 +129,9 @@ function App() {
               ))}
             </div>
           ) : (
-            <div className="text-center py-16 bg-gray-900/50 border-2 border-dashed border-gray-700">
-              <Gamepad2 className="w-16 h-16 text-gray-600 mx-auto mb-4" />
-              <p className="text-gray-500 text-lg" style={{ fontFamily: 'monospace' }}>
+            <div className="text-center py-16 bg-game-surface/50 border-2 border-dashed border-game-border">
+              <Gamepad2 className="w-16 h-16 text-game-text-secondary/40 mx-auto mb-4" />
+              <p className="text-game-text-secondary text-lg font-mono">
                 {filter === 'all'
                   ? 'No hay logros. ¡Crea tu primero!'
                   : filter === 'completed'
@@ -160,30 +153,30 @@ function App() {
 
         {/* Footer */}
         <footer className="mt-12 text-center">
-          <div className="inline-flex items-center gap-4 p-4 bg-gray-900 border-2 border-gray-700">
+          <div className="inline-flex items-center gap-4 p-4 bg-game-surface border-2 border-game-border">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-blue-500" />
-              <span className="text-xs text-gray-400" style={{ fontFamily: 'monospace' }}>Común</span>
+              <div className="w-3 h-3 bg-rarity-common" />
+              <span className="text-xs text-game-text-secondary font-mono">Común</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-red-500" />
-              <span className="text-xs text-gray-400" style={{ fontFamily: 'monospace' }}>Raro</span>
+              <div className="w-3 h-3 bg-rarity-rare" />
+              <span className="text-xs text-game-text-secondary font-mono">Raro</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-purple-500" />
-              <span className="text-xs text-gray-400" style={{ fontFamily: 'monospace' }}>Épico</span>
+              <div className="w-3 h-3 bg-rarity-epic" />
+              <span className="text-xs text-game-text-secondary font-mono">Épico</span>
             </div>
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-yellow-400" />
-              <span className="text-xs text-gray-400" style={{ fontFamily: 'monospace' }}>Legendario</span>
+              <div className="w-3 h-3 bg-rarity-legendary" />
+              <span className="text-xs text-game-text-secondary font-mono">Legendario</span>
             </div>
           </div>
-          <p className="mt-4 text-gray-600 text-sm" style={{ fontFamily: 'monospace' }}>
+          <p className="mt-4 text-game-text-secondary/60 text-sm font-mono">
             LOGROS ANUALES v1.0 • Datos guardados localmente
           </p>
         </footer>
-      </div >
-    </div >
+      </div>
+    </div>
   );
 }
 
