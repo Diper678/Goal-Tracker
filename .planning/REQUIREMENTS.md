@@ -9,8 +9,8 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 ### Design System
 
-- [ ] **DSGN-01**: User sees new Steam-like dark color palette (#020617 bg, steel blue surfaces, green accent, gold legendary)
-- [ ] **DSGN-02**: User sees Fira Code typography for headings/stats and Fira Sans for body text
+- [x] **DSGN-01**: User sees new Steam-like dark color palette (#020617 bg, steel blue surfaces, green accent, gold legendary)
+- [x] **DSGN-02**: User sees Fira Code typography for headings/stats and Fira Sans for body text
 - [ ] **DSGN-03**: User sees rarity-matched glow effects on achievement cards (color-coded box-shadow)
 
 ### iOS Platform
@@ -80,8 +80,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DSGN-01 | Phase 1 | Pending |
-| DSGN-02 | Phase 1 | Pending |
+| DSGN-01 | Phase 1 | Complete |
+| DSGN-02 | Phase 1 | Complete |
 | FIX-01 | Phase 1 | Pending |
 | IOS-01 | Phase 2 | Pending |
 | IOS-02 | Phase 2 | Pending |

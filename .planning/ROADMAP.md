@@ -82,7 +82,7 @@ Plans:
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design System Foundation | 0/TBD | Not started | - |
+| 1. Design System Foundation | 1/2 | In Progress|  |
 | 2. iOS Platform | 0/TBD | Not started | - |
 | 3. Categories System | 0/TBD | Not started | - |
 | 4. Achievement Cards | 0/TBD | Not started | - |

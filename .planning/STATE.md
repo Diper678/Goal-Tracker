@@ -10,26 +10,26 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 1 of 5 (Design System Foundation)
-Plan: 0 of TBD in current phase
-Status: Ready to plan
-Last activity: 2026-02-25 — Roadmap created, 21/21 requirements mapped across 5 phases
+Plan: 1 of TBD in current phase
+Status: In progress
+Last activity: 2026-02-27 — Plan 01-01 completed: Steam-dark design token layer
 
-Progress: [░░░░░░░░░░] 0%
+Progress: [█░░░░░░░░░] 10%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
-- Average duration: —
-- Total execution time: 0 hours
+- Total plans completed: 1
+- Average duration: ~15min
+- Total execution time: ~0.25 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 01-design-system-foundation | 1 | ~15min | ~15min |
 
-**Recent Trend:** N/A
+**Recent Trend:** 1 plan completed
 
 ## Accumulated Context
 
@@ -42,6 +42,13 @@ Key decisions from PROJECT.md:
 - Replace emojis with Lucide SVG icons — professional consistency
 - Categories system for organization by life area (salud, trabajo, personal, creatividad)
 
+From Plan 01-01 (2026-02-27):
+- Always-dark app: single :root block, .dark block removed, no light mode variables
+- image-rendering: pixelated scoped to .pixel-art class only — not global body rule
+- RARITY_COLORS text field added as breaking change — consumers fixed in Plan 02
+- Rarity bg opacity lowered 30% → 15% to fit Steam-dark (#020617) surface
+- Rarity names changed to Spanish: Común, Raro, Épico, Legendario
+
 ### Pending Todos
 
 None yet.
@@ -52,6 +59,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-25
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-design-system-foundation/01-CONTEXT.md
+Last session: 2026-02-27
+Stopped at: Completed 01-01-PLAN.md — Design system tokens and fonts
+Resume file: .planning/phases/01-design-system-foundation/01-02-PLAN.md
