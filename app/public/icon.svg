@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/20MathML" viewBox="0 0 512 512" width="512" height="512" xmlns="http://www.w3.org/2000/svg">
-  <rect width="512" height="512" fill="#030712"/>
-  <path d="M128 192v-64h256v64m0 128v64H128v-64" stroke="#eab308" stroke-width="32" fill="none" stroke-linecap="square"/>
-  <rect x="224" y="224" width="64" height="64" fill="#ef4444"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="512" height="512" rx="80" fill="url(#bg)"/>
+  <!-- Trophy cup body -->
+  <path d="M176 96h160v140c0 66-44 110-80 120c-36-10-80-54-80-120Z" fill="#FACC15"/>
+  <!-- Trophy handles (left and right) -->
+  <path d="M176 120 C136 120, 120 160, 136 180 C150 200, 176 190, 176 176" fill="none" stroke="#FACC15" stroke-width="16" stroke-linecap="round"/>
+  <path d="M336 120 C376 120, 392 160, 376 180 C362 200, 336 190, 336 176" fill="none" stroke="#FACC15" stroke-width="16" stroke-linecap="round"/>
+  <!-- Trophy stem -->
+  <rect x="236" y="356" width="40" height="60" rx="4" fill="#FACC15"/>
+  <!-- Trophy base -->
+  <rect x="176" y="416" width="160" height="24" rx="8" fill="#FACC15"/>
+  <!-- Star accent at top of cup -->
+  <text x="256" y="210" text-anchor="middle" font-size="80" fill="#030712">&#9733;</text>
 </svg>
