@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { useAchievements } from '@/hooks/useAchievements';
+import { useTheme } from '@/hooks/useTheme';
 import { AchievementCard } from '@/components/AchievementCard';
 import { AchievementForm } from '@/components/AchievementForm';
 import { StatsPanel } from '@/components/StatsPanel';
-import type { Achievement, RarityType } from '@/types/achievement';
+import { ThemeToggle } from '@/components/ThemeToggle';
+import type { Achievement, RarityType, CategoryType } from '@/types/achievement';
 import { Plus, Filter, Gamepad2 } from 'lucide-react';
 
 type FilterType = 'all' | 'completed' | 'pending';
@@ -18,6 +20,8 @@ function App() {
     updateAchievement,
     getStats
   } = useAchievements();
+
+  const { theme, toggleTheme } = useTheme();
 
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingAchievement, setEditingAchievement] = useState<Achievement | null>(null);
@@ -41,9 +45,11 @@ function App() {
     setEditingAchievement(null);
   };
 
-  const handleUpdate = (id: string, title: string, description: string, rarity: RarityType, icon: string) => {
-    updateAchievement(id, { title, description, rarity, icon });
+  const handleUpdate = (id: string, title: string, description: string, rarity: RarityType, icon: string, category: CategoryType) => {
+    updateAchievement(id, { title, description, rarity, icon, category });
   };
+
+  const defaultCategory: CategoryType = achievements[0]?.category ?? 'salud';
 
   if (!isLoaded) {
     return (
@@ -59,23 +65,10 @@ function App() {
     <div className="min-h-screen bg-game-bg py-8 px-4">
       <div className="max-w-[480px] mx-auto">
         {/* Header */}
-        <header className="text-center mb-8">
-          <div className="inline-flex items-center gap-3 mb-2">
-            <Gamepad2 className="w-10 h-10 text-rarity-legendary" />
-            <h1
-              className="text-4xl md:text-5xl font-bold text-game-text font-mono"
-              style={{
-                letterSpacing: '0.1em',
-                textShadow: '4px 4px 0px #000, -2px -2px 0px #ef4444, 2px -2px 0px #3b82f6, -2px 2px 0px #a855f7, 2px 2px 0px #eab308'
-              }}
-            >
-              LOGROS ANUALES
-            </h1>
-            <Gamepad2 className="w-10 h-10 text-rarity-legendary" />
-          </div>
-          <p className="text-game-text-secondary">
-            Define tus logros. Completa tu misión.
-          </p>
+        <header className="flex items-center justify-between mb-8">
+          <div className="w-11" />
+          <img src="/icon.svg" alt="Logros" className="w-14 h-14 rounded-xl" />
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </header>
 
         {/* Stats Panel */}
@@ -149,6 +142,7 @@ function App() {
           onSubmit={addAchievement}
           onUpdate={handleUpdate}
           editingAchievement={editingAchievement}
+          defaultCategory={defaultCategory}
         />
 
         {/* Footer */}

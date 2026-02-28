@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
-import type { RarityType, Achievement } from '@/types/achievement';
-import { RARITY_COLORS } from '@/types/achievement';
+import type { RarityType, CategoryType, Achievement } from '@/types/achievement';
+import { RARITY_COLORS, CATEGORY_CONFIG } from '@/types/achievement';
 import { X, Plus, Save } from 'lucide-react';
 
 interface AchievementFormProps {
   isOpen: boolean;
   onClose: () => void;
-  onSubmit: (title: string, description: string, rarity: RarityType, icon: string) => void;
-  onUpdate?: (id: string, title: string, description: string, rarity: RarityType, icon: string) => void;
+  onSubmit: (title: string, description: string, rarity: RarityType, icon: string, category: CategoryType) => void;
+  onUpdate?: (id: string, title: string, description: string, rarity: RarityType, icon: string, category: CategoryType) => void;
   editingAchievement?: Achievement | null;
+  defaultCategory?: CategoryType;
 }
 
 const ICON_OPTIONS = [
@@ -22,11 +23,12 @@ const ICON_OPTIONS = [
   '🐱', '🐶', '🦊', '🦁', '🐯', '🦄', '🦋', '🐢', '🐙', '🦕'
 ];
 
-export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAchievement }: AchievementFormProps) {
+export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAchievement, defaultCategory = 'salud' }: AchievementFormProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [rarity, setRarity] = useState<RarityType>('common');
   const [icon, setIcon] = useState('🏆');
+  const [category, setCategory] = useState<CategoryType>(defaultCategory);
 
   useEffect(() => {
     if (editingAchievement) {
@@ -34,21 +36,23 @@ export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAc
       setDescription(editingAchievement.description);
       setRarity(editingAchievement.rarity);
       setIcon(editingAchievement.icon);
+      setCategory(editingAchievement.category);
     } else {
       setTitle('');
       setDescription('');
       setRarity('common');
       setIcon('🏆');
+      setCategory(defaultCategory);
     }
-  }, [editingAchievement, isOpen]);
+  }, [editingAchievement, isOpen, defaultCategory]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (title.trim() && description.trim()) {
       if (editingAchievement && onUpdate) {
-        onUpdate(editingAchievement.id, title.trim(), description.trim(), rarity, icon);
+        onUpdate(editingAchievement.id, title.trim(), description.trim(), rarity, icon, category);
       } else {
-        onSubmit(title.trim(), description.trim(), rarity, icon);
+        onSubmit(title.trim(), description.trim(), rarity, icon, category);
       }
       onClose();
     }
@@ -125,6 +129,35 @@ export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAc
                   {RARITY_COLORS[r].name.toUpperCase()}
                 </button>
               ))}
+            </div>
+          </div>
+
+          {/* Category Selection */}
+          <div>
+            <label className="block text-sm text-game-text-secondary font-mono mb-2">
+              CATEGORÍA
+            </label>
+            <div className="grid grid-cols-3 gap-2">
+              {(Object.keys(CATEGORY_CONFIG) as CategoryType[]).map((cat) => {
+                const { name, border, bg, text, Icon } = CATEGORY_CONFIG[cat];
+                return (
+                  <button
+                    key={cat}
+                    type="button"
+                    onClick={() => setCategory(cat)}
+                    className={`
+                      flex items-center justify-center gap-1.5
+                      px-2 py-2 border-2 text-xs font-mono transition-all duration-150
+                      ${category === cat
+                        ? `${border} ${bg} ${text}`
+                        : 'border-game-border bg-game-card text-game-text-secondary hover:border-game-border/80'}
+                    `}
+                  >
+                    <Icon className="w-3.5 h-3.5 flex-shrink-0" />
+                    {name.toUpperCase()}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
