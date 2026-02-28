@@ -1,5 +1,6 @@
-// StatsPanel component - no additional imports needed
 import { Trophy, Target, Crown, Gem } from 'lucide-react';
+import { CATEGORY_CONFIG, CATEGORY_HEX } from '@/types/achievement';
+import type { CategoryType } from '@/types/achievement';
 
 interface StatsPanelProps {
   total: number;
@@ -10,10 +11,11 @@ interface StatsPanelProps {
     epic: number;
     legendary: number;
   };
+  byCategory: Record<CategoryType, { total: number; completed: number }>;
   percentage: number;
 }
 
-export function StatsPanel({ total, completed, byRarity, percentage }: StatsPanelProps) {
+export function StatsPanel({ total, completed, byRarity, byCategory, percentage }: StatsPanelProps) {
   return (
     <div className="relative bg-game-surface border-4 border-game-border p-4 mb-6 shadow-lg shadow-black/30">
       {/* Corner pixels */}
@@ -45,7 +47,7 @@ export function StatsPanel({ total, completed, byRarity, percentage }: StatsPane
         {/* Percentage */}
         <div className="text-right">
           <p className="text-xs text-game-text-secondary font-mono">PROGRESO</p>
-          <p className={`text-3xl font-bold font-mono ${percentage === 100 ? 'text-rarity-legendary' : 'text-rarity-common'}`}>
+          <p className={`text-3xl font-bold font-mono ${percentage === 100 ? 'text-rarity-legendary' : 'text-game-progress'}`}>
             {percentage}%
           </p>
         </div>
@@ -54,7 +56,7 @@ export function StatsPanel({ total, completed, byRarity, percentage }: StatsPane
       {/* Progress Bar */}
       <div className="w-full h-4 bg-game-card border-2 border-game-border mb-4 overflow-hidden">
         <div
-          className={`h-full transition-all duration-500 ${percentage === 100 ? 'bg-rarity-legendary' : 'bg-rarity-common'}`}
+          className={`h-full transition-all duration-500 ${percentage === 100 ? 'bg-rarity-legendary' : 'bg-game-progress'}`}
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -90,6 +92,38 @@ export function StatsPanel({ total, completed, byRarity, percentage }: StatsPane
           </div>
         </div>
       </div>
+
+      {/* Per-Category Breakdown */}
+      {(Object.keys(CATEGORY_CONFIG) as CategoryType[]).some(cat => byCategory[cat].total > 0) && (
+        <div className="mt-4 pt-4 border-t-2 border-game-border">
+          <p className="text-xs text-game-text-secondary font-mono mb-3">POR CATEGORÍA</p>
+          <div className="space-y-2">
+            {(Object.keys(CATEGORY_CONFIG) as CategoryType[])
+              .filter(cat => byCategory[cat].total > 0)
+              .map(cat => {
+                const { name, Icon } = CATEGORY_CONFIG[cat];
+                const { total: catTotal, completed: catCompleted } = byCategory[cat];
+                const pct = catTotal > 0 ? Math.round((catCompleted / catTotal) * 100) : 0;
+                const categoryColor = CATEGORY_HEX[cat];
+                return (
+                  <div key={cat} className="flex items-center gap-2">
+                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: categoryColor }} />
+                    <span className="text-xs font-mono w-24 text-game-text-secondary">{name.toUpperCase()}</span>
+                    <div className="flex-1 h-2 bg-game-card border border-game-border overflow-hidden">
+                      <div
+                        className="h-full transition-all duration-500"
+                        style={{ width: `${pct}%`, backgroundColor: categoryColor }}
+                      />
+                    </div>
+                    <span className="text-xs font-mono text-game-text-secondary w-12 text-right">
+                      {catCompleted}/{catTotal}
+                    </span>
+                  </div>
+                );
+              })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
