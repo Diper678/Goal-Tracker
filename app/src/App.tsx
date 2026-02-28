@@ -5,10 +5,12 @@ import { AchievementCard } from '@/components/AchievementCard';
 import { AchievementForm } from '@/components/AchievementForm';
 import { StatsPanel } from '@/components/StatsPanel';
 import { ThemeToggle } from '@/components/ThemeToggle';
+import { CATEGORY_CONFIG, CATEGORY_HEX } from '@/types/achievement';
 import type { Achievement, RarityType, CategoryType } from '@/types/achievement';
 import { Plus, Filter, Gamepad2 } from 'lucide-react';
 
 type FilterType = 'all' | 'completed' | 'pending';
+type CategoryFilterType = 'all' | CategoryType;
 
 function App() {
   const {
@@ -26,14 +28,23 @@ function App() {
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingAchievement, setEditingAchievement] = useState<Achievement | null>(null);
   const [filter, setFilter] = useState<FilterType>('all');
+  const [categoryFilter, setCategoryFilter] = useState<CategoryFilterType>('all');
 
   const stats = getStats();
 
-  const filteredAchievements = achievements.filter(ach => {
+  const statusFiltered = achievements.filter(ach => {
     if (filter === 'completed') return ach.completed;
     if (filter === 'pending') return !ach.completed;
     return true;
   });
+
+  const filteredAchievements = statusFiltered
+    .filter(ach => categoryFilter === 'all' || ach.category === categoryFilter);
+
+  const categoryCounts = (Object.keys(CATEGORY_CONFIG) as CategoryType[]).reduce(
+    (acc, cat) => ({ ...acc, [cat]: statusFiltered.filter(a => a.category === cat).length }),
+    {} as Record<CategoryType, number>
+  );
 
   const handleEdit = (achievement: Achievement) => {
     setEditingAchievement(achievement);
@@ -107,6 +118,44 @@ function App() {
           </button>
         </div>
 
+        {/* Category Filter Chips */}
+        <div className="flex gap-2 overflow-x-auto pb-2 mb-6 scrollbar-none" style={{ scrollbarWidth: 'none' }}>
+          {/* "Todas" chip */}
+          <button
+            onClick={() => setCategoryFilter('all')}
+            className={`
+              flex-shrink-0 flex items-center gap-1.5
+              px-3 min-h-[44px] border-2 text-sm font-mono whitespace-nowrap
+              transition-all duration-150
+              ${categoryFilter === 'all'
+                ? 'bg-primary border-primary/80 text-white'
+                : 'border-game-border bg-game-card text-game-text-secondary'}
+            `}
+          >
+            Todas ({statusFiltered.length})
+          </button>
+          {/* Category chips */}
+          {(Object.keys(CATEGORY_CONFIG) as CategoryType[]).map(cat => {
+            const { Icon, name, border, bg, text } = CATEGORY_CONFIG[cat];
+            const count = categoryCounts[cat];
+            return (
+              <button
+                key={cat}
+                onClick={() => setCategoryFilter(cat)}
+                className={`
+                  flex-shrink-0 flex items-center gap-1.5
+                  px-3 min-h-[44px] border-2 text-sm font-mono whitespace-nowrap
+                  transition-all duration-150
+                  ${categoryFilter === cat ? `${border} ${bg} ${text}` : 'border-game-border bg-game-card text-game-text-secondary'}
+                `}
+              >
+                <Icon className="w-3.5 h-3.5" />
+                {name} ({count})
+              </button>
+            );
+          })}
+        </div>
+
         {/* Achievements Grid */}
         {
           filteredAchievements.length > 0 ? (
@@ -123,14 +172,32 @@ function App() {
             </div>
           ) : (
             <div className="text-center py-16 bg-game-surface/50 border-2 border-dashed border-game-border">
-              <Gamepad2 className="w-16 h-16 text-game-text-secondary/40 mx-auto mb-4" />
-              <p className="text-game-text-secondary text-lg font-mono">
-                {filter === 'all'
-                  ? 'No hay logros. ¡Crea tu primero!'
-                  : filter === 'completed'
-                    ? 'No hay logros completados aún.'
-                    : '¡Todos los logros completados!'}
-              </p>
+              {categoryFilter !== 'all' ? (
+                <>
+                  {(() => {
+                    const { Icon, name } = CATEGORY_CONFIG[categoryFilter];
+                    return (
+                      <>
+                        <Icon className="w-16 h-16 mx-auto mb-4" style={{ color: CATEGORY_HEX[categoryFilter], opacity: 0.4 }} />
+                        <p className="text-game-text-secondary text-lg font-mono">
+                          No hay logros en {name}
+                        </p>
+                      </>
+                    );
+                  })()}
+                </>
+              ) : (
+                <>
+                  <Gamepad2 className="w-16 h-16 text-game-text-secondary/40 mx-auto mb-4" />
+                  <p className="text-game-text-secondary text-lg font-mono">
+                    {filter === 'all'
+                      ? 'No hay logros. ¡Crea tu primero!'
+                      : filter === 'completed'
+                        ? 'No hay logros completados aún.'
+                        : '¡Todos los logros completados!'}
+                  </p>
+                </>
+              )}
             </div>
           )
         }
