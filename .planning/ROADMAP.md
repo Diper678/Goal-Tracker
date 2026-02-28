@@ -9,7 +9,7 @@ Transform the functional Goal Tracker baseline into a polished, iOS-optimized ga
 ## Phases
 
 - [x] **Phase 1: Design System Foundation** - Apply Steam-dark palette, Fira Code/Fira Sans typography, and fix horizontal scroll bug
-- [ ] **Phase 2: iOS Platform** - Safe areas, splash screens, app icon, overscroll lock, and 44px touch targets
+- [x] **Phase 2: iOS Platform** - Safe areas, splash screens, app icon, overscroll lock, and 44px touch targets (completed 2026-02-28)
 - [ ] **Phase 3: Categories System** - Data model, category assignment UI, filter, and per-category stats
 - [ ] **Phase 4: Achievement Cards** - Lucide SVG icons, locked/unlocked states, gaming layout, pixel borders, unlock animation
 - [ ] **Phase 5: Animations & Accessibility** - Smooth transitions, reduced-motion respect, contrast audit, visible focus states
@@ -87,7 +87,7 @@ Plans:
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Design System Foundation | 2/2 | Complete | 2026-02-27 |
-| 2. iOS Platform | 1/2 | In Progress|  |
+| 2. iOS Platform | 2/2 | Complete   | 2026-02-28 |
 | 3. Categories System | 0/TBD | Not started | - |
 | 4. Achievement Cards | 0/TBD | Not started | - |
 | 5. Animations & Accessibility | 0/TBD | Not started | - |

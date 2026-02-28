@@ -2,13 +2,13 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
-status: unknown
-last_updated: "2026-02-28T14:58:25.256Z"
+status: in_progress
+last_updated: "2026-02-28T15:01:44Z"
 progress:
   total_phases: 2
   completed_phases: 1
   total_plans: 4
-  completed_plans: 3
+  completed_plans: 4
 ---
 
 # State: Logros Anuales
@@ -23,11 +23,11 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 2 of 5 (iOS Platform)
-Plan: 1 of 2 completed in current phase
-Status: In progress — Plan 02-01 complete, ready for Plan 02-02
-Last activity: 2026-02-28 — Plan 02-01 completed: iOS icon + splash screen assets, index.html meta tags
+Plan: 2 of 2 completed in current phase
+Status: Phase 02-ios-platform COMPLETE — all 2 plans done
+Last activity: 2026-02-28 — Plan 02-02 completed: iOS CSS hardening (safe area insets, overscroll lock, 44px touch targets)
 
-Progress: [███░░░░░░░] 30%
+Progress: [████░░░░░░] 40%
 
 ## Performance Metrics
 
@@ -41,9 +41,9 @@ Progress: [███░░░░░░░] 30%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-design-system-foundation | 2 | ~40min | ~20min |
-| 02-ios-platform | 1 | ~4min | ~4min |
+| 02-ios-platform | 2 | ~6min | ~3min |
 
-**Recent Trend:** 3 plans completed (phase 1 done, phase 2 in progress)
+**Recent Trend:** 4 plans completed (phase 1 done, phase 2 done)
 
 ## Accumulated Context
 
@@ -72,6 +72,12 @@ From Plan 01-02 (2026-02-27):
 - [Phase 02-01]: Manual splash screen generation script instead of @vite-pwa/assets-generator CLI (Node version incompatibility)
 - [Phase 02-01]: 14-device splash screen list (28 PNGs) covering all major iPhone and iPad sizes
 
+From Plan 02-02 (2026-02-28):
+- Two-layer overscroll lock: html position:fixed + body overflow-y:auto — hard-stops scroll at edges
+- env(safe-area-inset-*) applied to body padding with 0px fallback — notch/home bar safe
+- min-w-[44px] min-h-[44px] on toggle/edit/delete buttons — from 40px to 44px (Apple HIG compliant)
+- Filter buttons (Todos/Completados/Pendientes) updated from py-2 (~36px) to min-h-[44px]
+
 ### Pending Todos
 
 None yet.
@@ -83,5 +89,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-28
-Stopped at: Completed 02-01-PLAN.md — iOS icon and splash screen assets
-Resume file: .planning/phases/02-ios-platform/02-02-PLAN.md (Plan 02-02 — next plan)
+Stopped at: Completed 02-02-PLAN.md — iOS CSS hardening (safe area, overscroll lock, 44px touch targets)
+Resume file: Phase 02 complete — ready for next phase

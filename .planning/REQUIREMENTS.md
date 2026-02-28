@@ -15,11 +15,11 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 ### iOS Platform
 
-- [ ] **IOS-01**: User can use the app without UI overlapping the notch or home indicator (safe area handling)
+- [x] **IOS-01**: User can use the app without UI overlapping the notch or home indicator (safe area handling)
 - [x] **IOS-02**: User sees a branded splash screen on launch instead of a white flash
 - [x] **IOS-03**: User sees a polished 180px PNG app icon on the home screen
-- [ ] **IOS-04**: User cannot trigger rubber-band overscroll bounce (overscroll-behavior: none)
-- [ ] **IOS-05**: User can tap all interactive elements comfortably with 44px+ touch targets
+- [x] **IOS-04**: User cannot trigger rubber-band overscroll bounce (overscroll-behavior: none)
+- [x] **IOS-05**: User can tap all interactive elements comfortably with 44px+ touch targets
 
 ### Achievement Cards
 
@@ -83,11 +83,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DSGN-01 | Phase 1 | Complete |
 | DSGN-02 | Phase 1 | Complete |
 | FIX-01 | Phase 1 | Complete |
-| IOS-01 | Phase 2 | Pending |
+| IOS-01 | Phase 2 | Complete |
 | IOS-02 | Phase 2 | Complete |
 | IOS-03 | Phase 2 | Complete |
-| IOS-04 | Phase 2 | Pending |
-| IOS-05 | Phase 2 | Pending |
+| IOS-04 | Phase 2 | Complete |
+| IOS-05 | Phase 2 | Complete |
 | CAT-01 | Phase 3 | Pending |
 | CAT-02 | Phase 3 | Pending |
 | CAT-03 | Phase 3 | Pending |
