@@ -83,7 +83,7 @@ export function AchievementCard({ achievement, onToggle, onDelete, onEdit }: Ach
             <button
               onClick={() => onToggle(achievement.id)}
               className={`
-                w-10 h-10 flex items-center justify-center
+                min-w-[44px] min-h-[44px] flex items-center justify-center
                 border-2 transition-all duration-150
                 ${isCompleted
                   ? 'bg-game-accent border-game-accent/80 hover:bg-game-accent/90'
@@ -95,14 +95,14 @@ export function AchievementCard({ achievement, onToggle, onDelete, onEdit }: Ach
             </button>
             <button
               onClick={() => onEdit(achievement)}
-              className="w-10 h-10 flex items-center justify-center bg-game-card border-2 border-game-border hover:bg-game-surface transition-all duration-150"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-game-card border-2 border-game-border hover:bg-game-surface transition-all duration-150"
               title="Editar"
             >
               <Edit className="w-4 h-4 text-game-text-secondary" />
             </button>
             <button
               onClick={() => onDelete(achievement.id)}
-              className="w-10 h-10 flex items-center justify-center bg-rarity-rare/20 border-2 border-rarity-rare/60 hover:bg-rarity-rare/30 transition-all duration-150"
+              className="min-w-[44px] min-h-[44px] flex items-center justify-center bg-rarity-rare/20 border-2 border-rarity-rare/60 hover:bg-rarity-rare/30 transition-all duration-150"
               title="Eliminar"
             >
               <Trash2 className="w-4 h-4 text-rarity-rare" />
