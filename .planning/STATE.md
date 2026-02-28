@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
 status: unknown
-last_updated: "2026-02-27T13:50:46.823Z"
+last_updated: "2026-02-28T14:58:25.256Z"
 progress:
-  total_phases: 1
+  total_phases: 2
   completed_phases: 1
-  total_plans: 2
-  completed_plans: 2
+  total_plans: 4
+  completed_plans: 3
 ---
 
 # State: Logros Anuales
@@ -18,31 +18,32 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Users can visually track their annual achievements with a satisfying, gaming-inspired experience that feels native on iOS
-**Current focus:** Phase 1 — Design System Foundation
+**Current focus:** Phase 2 — iOS Platform
 
 ## Current Position
 
-Phase: 1 of 5 (Design System Foundation)
-Plan: 2 of 2 completed in current phase
-Status: Phase 1 complete — ready for Phase 2
-Last activity: 2026-02-27 — Plan 01-02 completed: Steam-dark component reskin + FIX-01 horizontal scroll
+Phase: 2 of 5 (iOS Platform)
+Plan: 1 of 2 completed in current phase
+Status: In progress — Plan 02-01 complete, ready for Plan 02-02
+Last activity: 2026-02-28 — Plan 02-01 completed: iOS icon + splash screen assets, index.html meta tags
 
-Progress: [██░░░░░░░░] 20%
+Progress: [███░░░░░░░] 30%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 2
-- Average duration: ~20min
-- Total execution time: ~0.67 hours
+- Total plans completed: 3
+- Average duration: ~14min
+- Total execution time: ~0.73 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 01-design-system-foundation | 2 | ~40min | ~20min |
+| 02-ios-platform | 1 | ~4min | ~4min |
 
-**Recent Trend:** 2 plans completed (phase 1 done)
+**Recent Trend:** 3 plans completed (phase 1 done, phase 2 in progress)
 
 ## Accumulated Context
 
@@ -67,6 +68,9 @@ From Plan 01-02 (2026-02-27):
 - Submit/primary buttons changed to bg-primary (blue) — green reserved for completion states only
 - max-w-[480px] container on App.tsx — compact mobile-app feel per CONTEXT.md
 - imageRendering: pixelated removed from all component inline styles (scoped to .pixel-art globally)
+- [Phase 02-01]: Used sharp@0.32.6 for Node 18.12.0 compatibility instead of latest sharp
+- [Phase 02-01]: Manual splash screen generation script instead of @vite-pwa/assets-generator CLI (Node version incompatibility)
+- [Phase 02-01]: 14-device splash screen list (28 PNGs) covering all major iPhone and iPad sizes
 
 ### Pending Todos
 
@@ -78,6 +82,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-27
-Stopped at: Completed 01-02-PLAN.md — Steam-dark component reskin + horizontal scroll fix
-Resume file: .planning/phases/02-*/  (Phase 2 — next phase)
+Last session: 2026-02-28
+Stopped at: Completed 02-01-PLAN.md — iOS icon and splash screen assets
+Resume file: .planning/phases/02-ios-platform/02-02-PLAN.md (Plan 02-02 — next plan)
