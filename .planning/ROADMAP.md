@@ -54,7 +54,11 @@ Plans:
   1. User can assign a category (salud, trabajo, personal, creatividad, etc.) to any achievement when creating or editing it
   2. User can tap a category filter and see only achievements belonging to that category
   3. User can see a per-category progress breakdown (total and completed counts) in the stats panel
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 03-01-PLAN.md — Add category types, config, Tailwind tokens, hook migration, and category picker in form
+- [ ] 03-02-PLAN.md — Add category filter chip bar and per-category stats breakdown
 
 ### Phase 4: Achievement Cards
 **Goal**: Achievement cards look like gaming trophies — Lucide SVG icons, clear locked vs unlocked distinction, dashboard-style layout, pixel-art border frames, and a satisfying unlock animation
