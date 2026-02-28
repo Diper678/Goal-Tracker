@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { Achievement, RarityType } from '@/types/achievement';
+import type { Achievement, RarityType, CategoryType } from '@/types/achievement';
 
 const STORAGE_KEY = '8bit-goal-tracker-achievements';
 
@@ -12,7 +12,12 @@ export function useAchievements() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
       if (stored) {
-        setAchievements(JSON.parse(stored));
+        const parsed: Achievement[] = JSON.parse(stored);
+        const migrated = parsed.map(a => ({
+          ...a,
+          category: a.category ?? 'otro'
+        } as Achievement));
+        setAchievements(migrated);
       }
     } catch (error) {
       console.error('Error loading achievements:', error);
@@ -31,12 +36,13 @@ export function useAchievements() {
     }
   }, [achievements, isLoaded]);
 
-  const addAchievement = useCallback((title: string, description: string, rarity: RarityType, icon: string) => {
+  const addAchievement = useCallback((title: string, description: string, rarity: RarityType, icon: string, category: CategoryType) => {
     const newAchievement: Achievement = {
       id: Date.now().toString(),
       title,
       description,
       rarity,
+      category,
       completed: false,
       icon
     };
@@ -79,7 +85,15 @@ export function useAchievements() {
       epic: achievements.filter(a => a.rarity === 'epic').length,
       legendary: achievements.filter(a => a.rarity === 'legendary').length
     };
-    return { total, completed, byRarity, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
+    const byCategory = (['salud', 'trabajo', 'personal', 'creatividad', 'otro'] as const).reduce(
+      (acc, cat) => {
+        const catAchs = achievements.filter(a => a.category === cat);
+        acc[cat] = { total: catAchs.length, completed: catAchs.filter(a => a.completed).length };
+        return acc;
+      },
+      {} as Record<CategoryType, { total: number; completed: number }>
+    );
+    return { total, completed, byRarity, byCategory, percentage: total > 0 ? Math.round((completed / total) * 100) : 0 };
   }, [achievements]);
 
   return {
