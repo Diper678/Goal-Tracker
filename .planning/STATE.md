@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
 status: in_progress
-last_updated: "2026-02-28T15:01:44Z"
+last_updated: "2026-02-28T23:57:19.298Z"
 progress:
-  total_phases: 2
-  completed_phases: 1
-  total_plans: 4
-  completed_plans: 4
+  total_phases: 3
+  completed_phases: 3
+  total_plans: 6
+  completed_plans: 6
 ---
 
 # State: Logros Anuales
@@ -23,11 +23,11 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 3 of 5 (Categories System)
-Plan: 1 of 2 completed in current phase
-Status: Phase 03-categories-system IN PROGRESS — plan 01 done
-Last activity: 2026-02-28 — Plan 03-01 completed: Category data model, Tailwind tokens, localStorage migration, category picker UI
+Plan: 2 of 2 completed in current phase
+Status: Phase 03-categories-system COMPLETE — both plans done
+Last activity: 2026-02-28 — Plan 03-02 completed: Category filter chip bar, AND-filter logic, per-category stats in StatsPanel
 
-Progress: [█████░░░░░] 50%
+Progress: [██████░░░░] 60%
 
 ## Performance Metrics
 
@@ -43,7 +43,11 @@ Progress: [█████░░░░░] 50%
 | 01-design-system-foundation | 2 | ~40min | ~20min |
 | 02-ios-platform | 2 | ~6min | ~3min |
 
-**Recent Trend:** 5 plans completed (phase 1 done, phase 2 done, phase 3 plan 01 done)
+**Recent Trend:** 6 plans completed (phase 1 done, phase 2 done, phase 3 done)
+
+| Phase | Plans | Total | Avg/Plan |
+|-------|-------|-------|----------|
+| 03-categories-system | 2 | ~6min | ~3min |
 
 ## Accumulated Context
 
@@ -85,6 +89,9 @@ From Plan 03-01 (2026-02-28):
 - Category picker placed between Rarity and Icon in form — 3-column grid, border-2/font-mono/transition-all
 - defaultCategory derived from achievements[0]?.category — smart default from last-added achievement
 - CATEGORY_HEX map added for inline styles — dynamic Tailwind class names not purge-safe
+- [Phase 03-02]: AND filter logic via statusFiltered intermediate — chip counts reflect active status filter dynamically
+- [Phase 03-02]: POR CATEGORÍA section uses inline CATEGORY_HEX styles — dynamic Tailwind class names not purge-safe
+- [Phase 03-02]: Chip bar uses scrollbar-none + style scrollbarWidth none — cross-browser scrollbar hiding (Chrome + Firefox)
 
 ### Pending Todos
 
@@ -97,5 +104,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-28
-Stopped at: Completed 03-01-PLAN.md — Category data model, Tailwind tokens, migration, category picker UI
-Resume file: Phase 03 plan 01 complete — ready for plan 02 (filter and stats)
+Stopped at: Completed 03-02-PLAN.md — Category filter chip bar, AND-filter logic, per-category stats in StatsPanel
+Resume file: Phase 03 complete — ready for Phase 04
