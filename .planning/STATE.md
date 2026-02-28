@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Users can visually track their annual achievements with a satisfying, gaming-inspired experience that feels native on iOS
-**Current focus:** Phase 2 — iOS Platform
+**Current focus:** Phase 3 — Categories System
 
 ## Current Position
 
-Phase: 2 of 5 (iOS Platform)
-Plan: 2 of 2 completed in current phase
-Status: Phase 02-ios-platform COMPLETE — all 2 plans done
-Last activity: 2026-02-28 — Plan 02-02 completed: iOS CSS hardening (safe area insets, overscroll lock, 44px touch targets)
+Phase: 3 of 5 (Categories System)
+Plan: 1 of 2 completed in current phase
+Status: Phase 03-categories-system IN PROGRESS — plan 01 done
+Last activity: 2026-02-28 — Plan 03-01 completed: Category data model, Tailwind tokens, localStorage migration, category picker UI
 
-Progress: [████░░░░░░] 40%
+Progress: [█████░░░░░] 50%
 
 ## Performance Metrics
 
@@ -43,7 +43,7 @@ Progress: [████░░░░░░] 40%
 | 01-design-system-foundation | 2 | ~40min | ~20min |
 | 02-ios-platform | 2 | ~6min | ~3min |
 
-**Recent Trend:** 4 plans completed (phase 1 done, phase 2 done)
+**Recent Trend:** 5 plans completed (phase 1 done, phase 2 done, phase 3 plan 01 done)
 
 ## Accumulated Context
 
@@ -78,6 +78,14 @@ From Plan 02-02 (2026-02-28):
 - min-w-[44px] min-h-[44px] on toggle/edit/delete buttons — from 40px to 44px (Apple HIG compliant)
 - Filter buttons (Todos/Completados/Pendientes) updated from py-2 (~36px) to min-h-[44px]
 
+From Plan 03-01 (2026-02-28):
+- CategoryType as string union (salud | trabajo | personal | creatividad | otro) — mirrors RarityType pattern
+- CATEGORY_CONFIG mirrors RARITY_COLORS structure with Lucide Icon component instead of glow field
+- Migration uses nullish coalescing (a.category ?? 'otro') — idempotent, safe on already-migrated data
+- Category picker placed between Rarity and Icon in form — 3-column grid, border-2/font-mono/transition-all
+- defaultCategory derived from achievements[0]?.category — smart default from last-added achievement
+- CATEGORY_HEX map added for inline styles — dynamic Tailwind class names not purge-safe
+
 ### Pending Todos
 
 None yet.
@@ -89,5 +97,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-02-28
-Stopped at: Completed 02-02-PLAN.md — iOS CSS hardening (safe area, overscroll lock, 44px touch targets)
-Resume file: Phase 02 complete — ready for next phase
+Stopped at: Completed 03-01-PLAN.md — Category data model, Tailwind tokens, migration, category picker UI
+Resume file: Phase 03 plan 01 complete — ready for plan 02 (filter and stats)

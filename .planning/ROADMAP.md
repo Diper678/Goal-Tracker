@@ -57,7 +57,7 @@ Plans:
 **Plans**: 2 plans
 
 Plans:
-- [ ] 03-01-PLAN.md — Add category types, config, Tailwind tokens, hook migration, and category picker in form
+- [x] 03-01-PLAN.md — Add category types, config, Tailwind tokens, hook migration, and category picker in form
 - [ ] 03-02-PLAN.md — Add category filter chip bar and per-category stats breakdown
 
 ### Phase 4: Achievement Cards
@@ -92,7 +92,7 @@ Plans:
 |-------|----------------|--------|-----------|
 | 1. Design System Foundation | 2/2 | Complete | 2026-02-27 |
 | 2. iOS Platform | 2/2 | Complete   | 2026-02-28 |
-| 3. Categories System | 0/TBD | Not started | - |
+| 3. Categories System | 1/2 | In progress | - |
 | 4. Achievement Cards | 0/TBD | Not started | - |
 | 5. Animations & Accessibility | 0/TBD | Not started | - |
 

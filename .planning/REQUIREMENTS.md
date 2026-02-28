@@ -31,7 +31,7 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 ### Categories
 
-- [ ] **CAT-01**: User can assign a category (salud, trabajo, personal, creatividad, etc.) to each achievement
+- [x] **CAT-01**: User can assign a category (salud, trabajo, personal, creatividad, etc.) to each achievement
 - [ ] **CAT-02**: User can filter achievements by category
 - [ ] **CAT-03**: User can see per-category progress breakdown in the stats panel
 
@@ -88,7 +88,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | IOS-03 | Phase 2 | Complete |
 | IOS-04 | Phase 2 | Complete |
 | IOS-05 | Phase 2 | Complete |
-| CAT-01 | Phase 3 | Pending |
+| CAT-01 | Phase 3 | Complete |
 | CAT-02 | Phase 3 | Pending |
 | CAT-03 | Phase 3 | Pending |
 | CARD-01 | Phase 4 | Pending |
