@@ -11,7 +11,7 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 - [x] **DSGN-01**: User sees new Steam-like dark color palette (#020617 bg, steel blue surfaces, green accent, gold legendary)
 - [x] **DSGN-02**: User sees Fira Code typography for headings/stats and Fira Sans for body text
-- [ ] **DSGN-03**: User sees rarity-matched glow effects on achievement cards (color-coded box-shadow)
+- [x] **DSGN-03**: User sees rarity-matched glow effects on achievement cards (color-coded box-shadow)
 
 ### iOS Platform
 
@@ -24,10 +24,10 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 ### Achievement Cards
 
 - [x] **CARD-01**: User sees Lucide SVG icons on achievement cards instead of emojis
-- [ ] **CARD-02**: User sees clearly distinct locked (desaturated/dimmed) vs unlocked visual states
-- [ ] **CARD-03**: User sees a redesigned gaming dashboard-style achievement card layout
-- [ ] **CARD-04**: User sees subtle pixel-art border frames on achievement cards as retro accent
-- [ ] **CARD-05**: User sees a satisfying visual animation when completing an achievement
+- [x] **CARD-02**: User sees clearly distinct locked (desaturated/dimmed) vs unlocked visual states
+- [x] **CARD-03**: User sees a redesigned gaming dashboard-style achievement card layout
+- [x] **CARD-04**: User sees subtle pixel-art border frames on achievement cards as retro accent
+- [x] **CARD-05**: User sees a satisfying visual animation when completing an achievement
 
 ### Categories
 
@@ -92,11 +92,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAT-02 | Phase 3 | Complete |
 | CAT-03 | Phase 3 | Complete |
 | CARD-01 | Phase 4 | Complete |
-| CARD-02 | Phase 4 | Pending |
-| CARD-03 | Phase 4 | Pending |
-| CARD-04 | Phase 4 | Pending |
-| CARD-05 | Phase 4 | Pending |
-| DSGN-03 | Phase 4 | Pending |
+| CARD-02 | Phase 4 | Complete |
+| CARD-03 | Phase 4 | Complete |
+| CARD-04 | Phase 4 | Complete |
+| CARD-05 | Phase 4 | Complete |
+| DSGN-03 | Phase 4 | Complete |
 | A11Y-01 | Phase 5 | Pending |
 | A11Y-02 | Phase 5 | Pending |
 | A11Y-03 | Phase 5 | Pending |
