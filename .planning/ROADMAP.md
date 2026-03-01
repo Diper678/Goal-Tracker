@@ -71,7 +71,11 @@ Plans:
   4. User sees subtle pixel-art border frames as a retro accent on achievement cards
   5. User sees a satisfying visual animation play when they complete (unlock) an achievement
   6. User sees rarity-matched colored glow effects (box-shadow) on achievement cards
-**Plans**: TBD
+**Plans**: 2 plans
+
+Plans:
+- [ ] 04-01-PLAN.md — ICON_MAP + Lucide icon picker + CSS animation keyframes
+- [ ] 04-02-PLAN.md — AchievementCard rewrite: layout, states, animations, glow
 
 ### Phase 5: Animations & Accessibility
 **Goal**: The app is smooth and legible for all users, including those who prefer reduced motion, and all interactive elements are keyboard/focus navigable
