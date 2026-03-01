@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
 status: unknown
-last_updated: "2026-03-01T08:44:30Z"
+last_updated: "2026-03-01T08:50:39.733Z"
 progress:
-  total_phases: 5
-  completed_phases: 3
+  total_phases: 4
+  completed_phases: 4
   total_plans: 8
-  completed_plans: 7
+  completed_plans: 8
 ---
 
 # State: Logros Anuales
@@ -23,11 +23,11 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 ## Current Position
 
 Phase: 4 of 5 (Achievement Cards)
-Plan: 1 of 2 completed in current phase
-Status: Phase 04 in progress — Plan 04-01 done (icon infrastructure + CSS animations)
-Last activity: 2026-03-01 — Plan 04-01 completed: ICON_MAP, categorized Lucide picker, CSS animation keyframes
+Plan: 2 of 2 completed in current phase (pending visual verification checkpoint)
+Status: Phase 04 in progress — Plan 04-02 Task 1 done, paused at visual verification checkpoint
+Last activity: 2026-03-01 — Plan 04-02 completed: AchievementCard rewrite with Lucide icons, locked/unlocked states, animations
 
-Progress: [███████░░░] 70%
+Progress: [████████░░] 80%
 
 ## Performance Metrics
 
@@ -48,7 +48,7 @@ Progress: [███████░░░] 70%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 03-categories-system | 2 | ~6min | ~3min |
-| 04-achievement-cards | 1 (so far) | ~4min | ~4min |
+| 04-achievement-cards | 2 | ~6min | ~3min |
 
 ## Accumulated Context
 
@@ -102,6 +102,8 @@ From Plan 04-01 (2026-03-01):
 - RARITY_HEX parallel to CATEGORY_HEX — hex values for inline styles on locked card borders
 - Per-rarity CSS animation classes: card-unlock-{rarity} (600-800ms) and glow-idle-{rarity} (2-3s infinite)
 - Card shimmer ::after requires parent position:relative + overflow:hidden — Plan 02's responsibility
+- [Phase 04]: Locked border uses inline style with hex alpha (4D = ~30%) rather than Tailwind opacity modifier — dynamic class names not purge-safe
+- [Phase 04]: justUnlocked state gates glow-idle class — card-unlock-* and glow-idle-* are mutually exclusive to avoid conflicting CSS animation stacks
 
 ### Pending Todos
 
@@ -114,5 +116,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-01-PLAN.md — ICON_MAP with 68 Lucide icons, categorized form picker, CSS animation keyframes
-Resume file: Phase 04 in progress — Plan 04-02 next (AchievementCard redesign)
+Stopped at: Completed 04-02 Task 1 — AchievementCard rewrite; paused at Task 2 checkpoint for visual verification
+Resume file: Phase 04 in progress — Plan 04-02 Task 2 (visual verification checkpoint) pending user approval
