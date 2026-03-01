@@ -2,12 +2,12 @@
 gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
-status: unknown
-last_updated: "2026-03-01T08:50:39.733Z"
+status: in-progress
+last_updated: "2026-03-01T09:10:00.000Z"
 progress:
-  total_phases: 4
+  total_phases: 5
   completed_phases: 4
-  total_plans: 8
+  total_plans: 10
   completed_plans: 8
 ---
 
@@ -22,10 +22,10 @@ See: .planning/PROJECT.md (updated 2026-02-25)
 
 ## Current Position
 
-Phase: 4 of 5 (Achievement Cards)
-Plan: 2 of 2 completed in current phase (pending visual verification checkpoint)
-Status: Phase 04 in progress — Plan 04-02 Task 1 done, paused at visual verification checkpoint
-Last activity: 2026-03-01 — Plan 04-02 completed: AchievementCard rewrite with Lucide icons, locked/unlocked states, animations
+Phase: 4 of 5 (Achievement Cards) — COMPLETE
+Plan: 2 of 2 completed in phase 04 (all plans done)
+Status: Phase 04 complete — all 6 requirements verified (CARD-01 through CARD-05, DSGN-03). Ready for Phase 05.
+Last activity: 2026-03-01 — Plan 04-02 complete: visual verification approved by user
 
 Progress: [████████░░] 80%
 
@@ -94,6 +94,14 @@ From Plan 03-01 (2026-02-28):
 - [Phase 03-02]: POR CATEGORÍA section uses inline CATEGORY_HEX styles — dynamic Tailwind class names not purge-safe
 - [Phase 03-02]: Chip bar uses scrollbar-none + style scrollbarWidth none — cross-browser scrollbar hiding (Chrome + Firefox)
 
+From Plan 04-02 (2026-03-01):
+- AchievementCard uses justUnlocked + useRef(prevCompleted) for fire-once unlock animation detection — prevents re-trigger on unrelated re-renders
+- glow-idle-{rarity} and card-unlock-{rarity} are mutually exclusive — justUnlocked state gates glow-idle application to avoid CSS animation stack conflicts
+- Locked border uses inline style={{ borderColor: RARITY_HEX[rarity] + '4D' }} — Tailwind opacity modifiers on custom color names not purge-safe (pattern consistent with Phase 03)
+- actionsVisible toggle on outer div onClick; all inner action buttons use e.stopPropagation() — tap-to-reveal edit/delete, complete always visible
+- date-fns formatDistanceToNow + es locale for Spanish relative time — already in project dependencies, no new packages needed
+- All action buttons min-w-[44px] min-h-[44px] — Apple HIG 44pt touch target (consistent with Phase 02 decisions)
+
 From Plan 04-01 (2026-03-01):
 - ICON_MAP as static Record<string, LucideIcon> with kebab-case keys — 68 icons in 5 categories
 - resolveIcon() returns LucideIcon | null — null triggers emoji fallback for backward compatibility
@@ -116,5 +124,5 @@ None.
 ## Session Continuity
 
 Last session: 2026-03-01
-Stopped at: Completed 04-02 Task 1 — AchievementCard rewrite; paused at Task 2 checkpoint for visual verification
-Resume file: Phase 04 in progress — Plan 04-02 Task 2 (visual verification checkpoint) pending user approval
+Stopped at: Completed 04-02 — AchievementCard gaming-trophy redesign; visual verification approved by user. Phase 04 complete.
+Resume file: Phase 05 (polish and launch) ready to begin
