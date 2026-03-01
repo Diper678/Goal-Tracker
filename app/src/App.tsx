@@ -178,7 +178,9 @@ function App() {
                     const { Icon, name } = CATEGORY_CONFIG[categoryFilter];
                     return (
                       <>
-                        <Icon className="w-16 h-16 mx-auto mb-4" style={{ color: CATEGORY_HEX[categoryFilter], opacity: 0.4 }} />
+                        <span style={{ color: CATEGORY_HEX[categoryFilter], opacity: 0.4 }}>
+                          <Icon className="w-16 h-16 mx-auto mb-4" />
+                        </span>
                         <p className="text-game-text-secondary text-lg font-mono">
                           No hay logros en {name}
                         </p>
@@ -214,25 +216,7 @@ function App() {
 
         {/* Footer */}
         <footer className="mt-12 text-center">
-          <div className="inline-flex items-center gap-4 p-4 bg-game-surface border-2 border-game-border">
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-rarity-common" />
-              <span className="text-xs text-game-text-secondary font-mono">Común</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-rarity-rare" />
-              <span className="text-xs text-game-text-secondary font-mono">Raro</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-rarity-epic" />
-              <span className="text-xs text-game-text-secondary font-mono">Épico</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-rarity-legendary" />
-              <span className="text-xs text-game-text-secondary font-mono">Legendario</span>
-            </div>
-          </div>
-          <p className="mt-4 text-game-text-secondary/60 text-sm font-mono">
+          <p className="text-game-text-secondary/60 text-sm font-mono">
             LOGROS ANUALES v1.0 • Datos guardados localmente
           </p>
         </footer>

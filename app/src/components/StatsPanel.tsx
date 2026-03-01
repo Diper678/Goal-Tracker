@@ -107,7 +107,9 @@ export function StatsPanel({ total, completed, byRarity, byCategory, percentage 
                 const categoryColor = CATEGORY_HEX[cat];
                 return (
                   <div key={cat} className="flex items-center gap-2">
-                    <Icon className="w-4 h-4 flex-shrink-0" style={{ color: categoryColor }} />
+                    <span style={{ color: categoryColor }}>
+                      <Icon className="w-4 h-4 flex-shrink-0" />
+                    </span>
                     <span className="text-xs font-mono w-24 text-game-text-secondary">{name.toUpperCase()}</span>
                     <div className="flex-1 h-2 bg-game-card border border-game-border overflow-hidden">
                       <div
