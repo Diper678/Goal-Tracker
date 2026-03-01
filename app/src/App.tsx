@@ -76,9 +76,7 @@ function App() {
     <div className="min-h-screen bg-game-bg py-8 px-4">
       <div className="max-w-[480px] mx-auto">
         {/* Header */}
-        <header className="flex items-center justify-between mb-8">
-          <div className="w-11" />
-          <img src="/icon.svg" alt="Logros" className="w-14 h-14 rounded-xl" />
+        <header className="flex items-center justify-end mb-8">
           <ThemeToggle theme={theme} onToggle={toggleTheme} />
         </header>
 
