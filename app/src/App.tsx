@@ -7,7 +7,7 @@ import { StatsPanel } from '@/components/StatsPanel';
 import { ThemeToggle } from '@/components/ThemeToggle';
 import { CATEGORY_CONFIG, CATEGORY_HEX } from '@/types/achievement';
 import type { Achievement, RarityType, CategoryType } from '@/types/achievement';
-import { Plus, Filter, Gamepad2 } from 'lucide-react';
+import { Plus, Gamepad2 } from 'lucide-react';
 
 type FilterType = 'all' | 'completed' | 'pending';
 type CategoryFilterType = 'all' | CategoryType;
@@ -73,37 +73,29 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-game-bg py-8 px-4">
+    <div className="min-h-screen bg-game-bg py-8 px-4 overflow-x-hidden">
       <div className="max-w-[480px] mx-auto">
-        {/* Header */}
-        <header className="flex items-center justify-end mb-8">
-          <ThemeToggle theme={theme} onToggle={toggleTheme} />
-        </header>
-
         {/* Stats Panel */}
         <StatsPanel {...stats} />
 
         {/* Controls */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
           {/* Filter Buttons */}
-          <div className="flex items-center gap-2">
-            <Filter className="w-5 h-5 text-game-text-secondary" />
-            <div className="flex bg-game-surface border-2 border-game-border">
-              {(['all', 'completed', 'pending'] as FilterType[]).map((f) => (
-                <button
-                  key={f}
-                  onClick={() => setFilter(f)}
-                  className={`
-                    px-4 min-h-[44px] text-sm font-mono uppercase transition-all duration-150
-                    ${filter === f
-                      ? 'bg-primary text-white'
-                      : 'text-game-text-secondary hover:text-game-text hover:bg-game-card'}
-                  `}
-                >
-                  {f === 'all' ? 'Todos' : f === 'completed' ? 'Completados' : 'Pendientes'}
-                </button>
-              ))}
-            </div>
+          <div className="flex bg-game-surface border-2 border-game-border">
+            {(['all', 'completed', 'pending'] as FilterType[]).map((f) => (
+              <button
+                key={f}
+                onClick={() => setFilter(f)}
+                className={`
+                  px-4 min-h-[44px] text-sm font-mono uppercase transition-all duration-150
+                  ${filter === f
+                    ? 'bg-primary text-white'
+                    : 'text-game-text-secondary hover:text-game-text hover:bg-game-card'}
+                `}
+              >
+                {f === 'all' ? 'Todos' : f === 'completed' ? 'Completados' : 'Pendientes'}
+              </button>
+            ))}
           </div>
 
           {/* Add Button */}
@@ -213,7 +205,8 @@ function App() {
         />
 
         {/* Footer */}
-        <footer className="mt-12 text-center">
+        <footer className="mt-12 flex flex-col items-center gap-4">
+          <ThemeToggle theme={theme} onToggle={toggleTheme} />
           <p className="text-game-text-secondary/60 text-sm font-mono">
             LOGROS ANUALES v1.0 • Datos guardados localmente
           </p>
