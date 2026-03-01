@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import type { RarityType, CategoryType, Achievement } from '@/types/achievement';
-import { RARITY_COLORS, CATEGORY_CONFIG } from '@/types/achievement';
+import { RARITY_COLORS, CATEGORY_CONFIG, ICON_MAP, ICON_SECTIONS } from '@/types/achievement';
 import { X, Plus, Save } from 'lucide-react';
 
 interface AchievementFormProps {
@@ -12,22 +12,11 @@ interface AchievementFormProps {
   defaultCategory?: CategoryType;
 }
 
-const ICON_OPTIONS = [
-  '🏆', '⭐', '💎', '🔥', '⚔️', '🛡️', '💰', '🔑', '📜', '🎯',
-  '🎮', '👑', '🏅', '🎖️', '⚡', '🌟', '🗡️', '🧙', '🐉', '🏰',
-  '❤️', '💙', '💜', '🧡', '💚', '🖤', '🤍', '💛', '💖', '💗',
-  '🎵', '🎨', '📚', '💻', '🚀', '🌙', '☀️', '🌈', '💡', '🧠',
-  '💪', '🏃', '🚴', '🏊', '🧘', '🍕', '🍔', '🍰', '☕', '🍺',
-  '🌺', '🌻', '🌹', '🍀', '🌵', '🌲', '🔔', '🎁', '🎈', '🎉',
-  '✈️', '🚗', '🚲', '🗺️', '🧭', '⏰', '📅', '✅', '❌', '❓',
-  '🐱', '🐶', '🦊', '🦁', '🐯', '🦄', '🦋', '🐢', '🐙', '🦕'
-];
-
 export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAchievement, defaultCategory = 'salud' }: AchievementFormProps) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [rarity, setRarity] = useState<RarityType>('common');
-  const [icon, setIcon] = useState('🏆');
+  const [icon, setIcon] = useState('trophy');
   const [category, setCategory] = useState<CategoryType>(defaultCategory);
 
   useEffect(() => {
@@ -41,7 +30,7 @@ export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAc
       setTitle('');
       setDescription('');
       setRarity('common');
-      setIcon('🏆');
+      setIcon('trophy');
       setCategory(defaultCategory);
     }
   }, [editingAchievement, isOpen, defaultCategory]);
@@ -166,21 +155,35 @@ export function AchievementForm({ isOpen, onClose, onSubmit, onUpdate, editingAc
             <label className="block text-sm text-game-text-secondary font-mono mb-2">
               ÍCONO
             </label>
-            <div className="grid grid-cols-8 gap-2 max-h-60 overflow-y-auto p-2 border-2 border-game-border bg-game-card/50">
-              {ICON_OPTIONS.map((emoji) => (
-                <button
-                  key={emoji}
-                  type="button"
-                  onClick={() => setIcon(emoji)}
-                  className={`
-                    w-10 h-10 flex items-center justify-center text-xl border-2 transition-all duration-150
-                    ${icon === emoji
-                      ? 'border-rarity-legendary bg-rarity-legendary/15'
-                      : 'border-game-border bg-game-card hover:border-game-border/80'}
-                  `}
-                >
-                  {emoji}
-                </button>
+            <div className="max-h-60 overflow-y-auto p-2 border-2 border-game-border bg-game-card/50">
+              {ICON_SECTIONS.map(section => (
+                <div key={section.label}>
+                  <p className="text-xs text-game-text-secondary font-mono mb-2 mt-3 uppercase tracking-widest first:mt-0">
+                    {section.label}
+                  </p>
+                  <div className="grid grid-cols-8 gap-1.5">
+                    {section.icons.map(iconKey => {
+                      const LucideIcon = ICON_MAP[iconKey];
+                      if (!LucideIcon) return null;
+                      return (
+                        <button
+                          key={iconKey}
+                          type="button"
+                          onClick={() => setIcon(iconKey)}
+                          title={iconKey}
+                          className={`
+                            min-w-[40px] min-h-[40px] flex items-center justify-center border-2 transition-all duration-150
+                            ${icon === iconKey
+                              ? 'border-rarity-legendary bg-rarity-legendary/15'
+                              : 'border-game-border bg-game-card hover:border-game-border/80'}
+                          `}
+                        >
+                          <LucideIcon className={`w-5 h-5 ${icon === iconKey ? 'text-rarity-legendary' : 'text-game-text-secondary'}`} strokeWidth={1.5} />
+                        </button>
+                      );
+                    })}
+                  </div>
+                </div>
               ))}
             </div>
           </div>
