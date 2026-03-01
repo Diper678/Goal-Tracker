@@ -62,7 +62,7 @@ export function StatsPanel({ total, completed, byRarity, byCategory, percentage 
       </div>
 
       {/* Rarity Breakdown */}
-      <div className="grid grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
         <div className="flex items-center gap-2 p-2 bg-rarity-common/10 border-2 border-rarity-common/30">
           <Gem className="w-4 h-4 text-rarity-common" />
           <div>

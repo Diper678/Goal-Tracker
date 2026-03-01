@@ -96,7 +96,7 @@ function App() {
                   key={f}
                   onClick={() => setFilter(f)}
                   className={`
-                    px-4 min-h-[44px] text-sm font-mono uppercase transition-all duration-150
+                    px-2 sm:px-4 min-h-[44px] text-xs sm:text-sm font-mono uppercase transition-all duration-150
                     ${filter === f
                       ? 'bg-primary text-white'
                       : 'text-game-text-secondary hover:text-game-text hover:bg-game-card'}
