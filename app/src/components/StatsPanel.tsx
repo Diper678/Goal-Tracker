@@ -62,34 +62,26 @@ export function StatsPanel({ total, completed, byRarity, byCategory, percentage 
       </div>
 
       {/* Rarity Breakdown */}
-      <div className="grid grid-cols-4 gap-2">
-        <div className="flex items-center gap-2 p-2 bg-rarity-common/10 border-2 border-rarity-common/30">
-          <Gem className="w-4 h-4 text-rarity-common" />
-          <div>
-            <p className="text-xs text-rarity-common font-mono">COMÚN</p>
-            <p className="text-lg font-bold text-game-text font-mono">{byRarity.common}</p>
-          </div>
+      <div className="grid grid-cols-4 gap-1.5">
+        <div className="flex flex-col items-center p-2 bg-rarity-common/10 border-2 border-rarity-common/30 min-w-0">
+          <Gem className="w-4 h-4 text-rarity-common mb-0.5 flex-shrink-0" />
+          <p className="text-[10px] leading-tight text-rarity-common font-mono text-center truncate w-full">COMÚN</p>
+          <p className="text-base font-bold text-game-text font-mono">{byRarity.common}</p>
         </div>
-        <div className="flex items-center gap-2 p-2 bg-rarity-rare/10 border-2 border-rarity-rare/30">
-          <Gem className="w-4 h-4 text-rarity-rare" />
-          <div>
-            <p className="text-xs text-rarity-rare font-mono">RARO</p>
-            <p className="text-lg font-bold text-game-text font-mono">{byRarity.rare}</p>
-          </div>
+        <div className="flex flex-col items-center p-2 bg-rarity-rare/10 border-2 border-rarity-rare/30 min-w-0">
+          <Gem className="w-4 h-4 text-rarity-rare mb-0.5 flex-shrink-0" />
+          <p className="text-[10px] leading-tight text-rarity-rare font-mono text-center truncate w-full">RARO</p>
+          <p className="text-base font-bold text-game-text font-mono">{byRarity.rare}</p>
         </div>
-        <div className="flex items-center gap-2 p-2 bg-rarity-epic/10 border-2 border-rarity-epic/30">
-          <Crown className="w-4 h-4 text-rarity-epic" />
-          <div>
-            <p className="text-xs text-rarity-epic font-mono">ÉPICO</p>
-            <p className="text-lg font-bold text-game-text font-mono">{byRarity.epic}</p>
-          </div>
+        <div className="flex flex-col items-center p-2 bg-rarity-epic/10 border-2 border-rarity-epic/30 min-w-0">
+          <Crown className="w-4 h-4 text-rarity-epic mb-0.5 flex-shrink-0" />
+          <p className="text-[10px] leading-tight text-rarity-epic font-mono text-center truncate w-full">ÉPICO</p>
+          <p className="text-base font-bold text-game-text font-mono">{byRarity.epic}</p>
         </div>
-        <div className="flex items-center gap-2 p-2 bg-rarity-legendary/10 border-2 border-rarity-legendary/30">
-          <Crown className="w-4 h-4 text-rarity-legendary" />
-          <div>
-            <p className="text-xs text-rarity-legendary font-mono">LEGENDARIO</p>
-            <p className="text-lg font-bold text-game-text font-mono">{byRarity.legendary}</p>
-          </div>
+        <div className="flex flex-col items-center p-2 bg-rarity-legendary/10 border-2 border-rarity-legendary/30 min-w-0">
+          <Crown className="w-4 h-4 text-rarity-legendary mb-0.5 flex-shrink-0" />
+          <p className="text-[10px] leading-tight text-rarity-legendary font-mono text-center truncate w-full">LEGND.</p>
+          <p className="text-base font-bold text-game-text font-mono">{byRarity.legendary}</p>
         </div>
       </div>
 
