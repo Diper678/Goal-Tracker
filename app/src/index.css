@@ -101,6 +101,8 @@
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     overscroll-behavior-y: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
     /* Safe area insets — requires viewport-fit=cover in index.html (added in Plan 01) */
     padding-top: env(safe-area-inset-top, 0px);
     padding-bottom: env(safe-area-inset-bottom, 0px);
@@ -143,24 +145,9 @@
   z-index: 9999;
 }
 
-/* Custom scrollbar */
+/* Hide scrollbar */
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
-}
-
-::-webkit-scrollbar-track {
-  background: var(--game-surface);
-  border: 2px solid var(--game-border);
-}
-
-::-webkit-scrollbar-thumb {
-  background: var(--game-border);
-  border: 2px solid var(--game-border);
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--game-text-secondary);
+  display: none;
 }
 
 /* Selection */
