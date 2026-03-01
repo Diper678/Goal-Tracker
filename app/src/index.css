@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    /* Steam-dark palette — always dark, no light mode */
+    /* shadcn/ui base tokens */
     --background: 222 47% 3.5%;
     --foreground: 214 32% 91%;
     --card: 222 47% 11%;
@@ -26,17 +26,55 @@
     --ring: 217 91% 60%;
     --radius: 0.25rem;
 
-    /* Brand palette */
-    --color-bg-primary: #020617;
-    --color-bg-surface: #0F172A;
-    --color-bg-card: #1E293B;
-    --color-accent-green: #22C55E;
-    --color-text-primary: #E2E8F0;
-    --color-text-secondary: #94A3B8;
+    /* Game tokens — Steam (dark, default) */
+    --game-bg: #020617;
+    --game-surface: #0F172A;
+    --game-card: #1E293B;
+    --game-border: #334155;
+    --game-accent: #22C55E;
+    --game-text: #E2E8F0;
+    --game-text-secondary: #94A3B8;
+    --game-progress: #3B82F6;
+    --card-shadow: rgba(0,0,0,0.5);
+
+    /* Rarity — shared across themes */
     --color-rarity-common: #3B82F6;
     --color-rarity-rare: #EF4444;
     --color-rarity-epic: #A855F7;
     --color-rarity-legendary: #FACC15;
+  }
+
+  /* Stardust — light / pink theme */
+  [data-theme="stardust"] {
+    --background: 340 60% 98%;
+    --foreground: 280 30% 17%;
+    --card: 0 0% 100%;
+    --card-foreground: 280 30% 17%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 280 30% 17%;
+    --primary: 330 81% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 330 20% 92%;
+    --secondary-foreground: 280 30% 17%;
+    --muted: 330 20% 92%;
+    --muted-foreground: 280 15% 54%;
+    --accent: 330 20% 92%;
+    --accent-foreground: 280 30% 17%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 320 20% 88%;
+    --input: 320 20% 88%;
+    --ring: 330 81% 60%;
+
+    --game-bg: #FFF5F7;
+    --game-surface: #FFF0F3;
+    --game-card: #FFFFFF;
+    --game-border: #E8D5E0;
+    --game-accent: #EC4899;
+    --game-text: #2D2235;
+    --game-text-secondary: #7C6A8A;
+    --game-progress: #EC4899;
+    --card-shadow: rgba(0,0,0,0.08);
   }
 }
 
@@ -53,8 +91,8 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #020617;
-    color: #E2E8F0;
+    background-color: var(--game-bg);
+    color: var(--game-text);
     font-family: 'Fira Sans', ui-sans-serif, sans-serif;
     position: relative;
     width: 100%;
@@ -111,17 +149,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F172A;
-  border: 2px solid #334155;
+  background: var(--game-surface);
+  border: 2px solid var(--game-border);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
-  border: 2px solid #334155;
+  background: var(--game-border);
+  border: 2px solid var(--game-border);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: var(--game-text-secondary);
 }
 
 /* Selection */
@@ -149,3 +187,78 @@
 .glow-animation {
   animation: pixel-glow 2s ease-in-out infinite;
 }
+
+/* Card unlock animation — scale pop */
+@keyframes card-unlock {
+  0%   { transform: scale(1); }
+  30%  { transform: scale(1.05); }
+  60%  { transform: scale(0.98); }
+  100% { transform: scale(1); }
+}
+
+/* Shimmer sweep — pseudo-element light sweep across card */
+@keyframes shimmer-sweep {
+  0%   { transform: translateX(-100%) skewX(-15deg); opacity: 0; }
+  50%  { opacity: 1; }
+  100% { transform: translateX(200%) skewX(-15deg); opacity: 0; }
+}
+
+/* Per-rarity unlock animation classes (parent needs position:relative + overflow:hidden) */
+.card-unlock-common {
+  animation: card-unlock 600ms ease-out forwards;
+}
+.card-unlock-common::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(59,130,246,0.3), transparent);
+  animation: shimmer-sweep 600ms ease-out forwards;
+  pointer-events: none;
+}
+
+.card-unlock-rare {
+  animation: card-unlock 650ms ease-out forwards;
+}
+.card-unlock-rare::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(239,68,68,0.35), transparent);
+  animation: shimmer-sweep 650ms ease-out forwards;
+  pointer-events: none;
+}
+
+.card-unlock-epic {
+  animation: card-unlock 700ms ease-out forwards;
+}
+.card-unlock-epic::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(168,85,247,0.4), transparent);
+  animation: shimmer-sweep 700ms ease-out forwards;
+  pointer-events: none;
+}
+
+.card-unlock-legendary {
+  animation: card-unlock 800ms ease-out forwards;
+}
+.card-unlock-legendary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(250,204,21,0.5), transparent);
+  animation: shimmer-sweep 800ms ease-out forwards;
+  pointer-events: none;
+}
+
+/* Per-rarity idle glow pulse — completed cards breathe with rarity color */
+@keyframes glow-pulse-common    { 0%,100% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 8px #3B82F6;  } 50% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 20px #3B82F6;  } }
+@keyframes glow-pulse-rare      { 0%,100% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 8px #EF4444;  } 50% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 20px #EF4444;  } }
+@keyframes glow-pulse-epic      { 0%,100% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 10px #A855F7; } 50% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 25px #A855F7; } }
+@keyframes glow-pulse-legendary { 0%,100% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 14px #FACC15; } 50% { box-shadow: 4px 4px 0 rgba(0,0,0,0.5), 0 0 35px #FACC15; } }
+
+.glow-idle-common    { animation: glow-pulse-common    3s ease-in-out infinite; }
+.glow-idle-rare      { animation: glow-pulse-rare      3s ease-in-out infinite; }
+.glow-idle-epic      { animation: glow-pulse-epic      2.5s ease-in-out infinite; }
+.glow-idle-legendary { animation: glow-pulse-legendary 2s ease-in-out infinite; }
