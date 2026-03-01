@@ -110,7 +110,7 @@ export function AchievementCard({ achievement, onToggle, onDelete, onEdit }: Ach
 
               {/* Category chip */}
               <span className={`text-xs px-2 py-1 border-2 font-mono flex items-center gap-1 ${catConfig.border} ${catConfig.bg} ${catConfig.text}`}>
-                <catConfig.Icon className="w-3 h-3" style={{ color: CATEGORY_HEX[achievement.category] }} />
+                <span style={{ color: CATEGORY_HEX[achievement.category] }}><catConfig.Icon className="w-3 h-3" /></span>
                 {catConfig.name.toUpperCase()}
               </span>
 
