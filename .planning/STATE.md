@@ -3,12 +3,12 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: UI/UX Overhaul
 status: unknown
-last_updated: "2026-03-01T00:02:18.930Z"
+last_updated: "2026-03-01T08:44:30Z"
 progress:
-  total_phases: 3
+  total_phases: 5
   completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  total_plans: 8
+  completed_plans: 7
 ---
 
 # State: Logros Anuales
@@ -18,16 +18,16 @@ progress:
 See: .planning/PROJECT.md (updated 2026-02-25)
 
 **Core value:** Users can visually track their annual achievements with a satisfying, gaming-inspired experience that feels native on iOS
-**Current focus:** Phase 3 — Categories System
+**Current focus:** Phase 4 — Achievement Cards
 
 ## Current Position
 
-Phase: 3 of 5 (Categories System)
-Plan: 2 of 2 completed in current phase
-Status: Phase 03-categories-system COMPLETE — both plans done
-Last activity: 2026-02-28 — Plan 03-02 completed: Category filter chip bar, AND-filter logic, per-category stats in StatsPanel
+Phase: 4 of 5 (Achievement Cards)
+Plan: 1 of 2 completed in current phase
+Status: Phase 04 in progress — Plan 04-01 done (icon infrastructure + CSS animations)
+Last activity: 2026-03-01 — Plan 04-01 completed: ICON_MAP, categorized Lucide picker, CSS animation keyframes
 
-Progress: [██████░░░░] 60%
+Progress: [███████░░░] 70%
 
 ## Performance Metrics
 
@@ -43,11 +43,12 @@ Progress: [██████░░░░] 60%
 | 01-design-system-foundation | 2 | ~40min | ~20min |
 | 02-ios-platform | 2 | ~6min | ~3min |
 
-**Recent Trend:** 6 plans completed (phase 1 done, phase 2 done, phase 3 done)
+**Recent Trend:** 7 plans completed (phase 1 done, phase 2 done, phase 3 done, phase 4 in progress)
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 03-categories-system | 2 | ~6min | ~3min |
+| 04-achievement-cards | 1 (so far) | ~4min | ~4min |
 
 ## Accumulated Context
 
@@ -93,6 +94,15 @@ From Plan 03-01 (2026-02-28):
 - [Phase 03-02]: POR CATEGORÍA section uses inline CATEGORY_HEX styles — dynamic Tailwind class names not purge-safe
 - [Phase 03-02]: Chip bar uses scrollbar-none + style scrollbarWidth none — cross-browser scrollbar hiding (Chrome + Firefox)
 
+From Plan 04-01 (2026-03-01):
+- ICON_MAP as static Record<string, LucideIcon> with kebab-case keys — 68 icons in 5 categories
+- resolveIcon() returns LucideIcon | null — null triggers emoji fallback for backward compatibility
+- ICON_SECTIONS as const drives both picker UI and key consistency (single source of truth)
+- Kebab-case keys throughout ICON_MAP and ICON_SECTIONS — matches lucide.dev URL slugs, prevents picker-to-card mismatch
+- RARITY_HEX parallel to CATEGORY_HEX — hex values for inline styles on locked card borders
+- Per-rarity CSS animation classes: card-unlock-{rarity} (600-800ms) and glow-idle-{rarity} (2-3s infinite)
+- Card shimmer ::after requires parent position:relative + overflow:hidden — Plan 02's responsibility
+
 ### Pending Todos
 
 None yet.
@@ -103,6 +113,6 @@ None.
 
 ## Session Continuity
 
-Last session: 2026-02-28
-Stopped at: Completed 03-02-PLAN.md — Category filter chip bar, AND-filter logic, per-category stats in StatsPanel
-Resume file: Phase 03 complete — ready for Phase 04
+Last session: 2026-03-01
+Stopped at: Completed 04-01-PLAN.md — ICON_MAP with 68 Lucide icons, categorized form picker, CSS animation keyframes
+Resume file: Phase 04 in progress — Plan 04-02 next (AchievementCard redesign)

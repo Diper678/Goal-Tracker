@@ -23,7 +23,7 @@ Requirements for UI/UX overhaul milestone. Each maps to roadmap phases.
 
 ### Achievement Cards
 
-- [ ] **CARD-01**: User sees Lucide SVG icons on achievement cards instead of emojis
+- [x] **CARD-01**: User sees Lucide SVG icons on achievement cards instead of emojis
 - [ ] **CARD-02**: User sees clearly distinct locked (desaturated/dimmed) vs unlocked visual states
 - [ ] **CARD-03**: User sees a redesigned gaming dashboard-style achievement card layout
 - [ ] **CARD-04**: User sees subtle pixel-art border frames on achievement cards as retro accent
@@ -91,7 +91,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CAT-01 | Phase 3 | Complete |
 | CAT-02 | Phase 3 | Complete |
 | CAT-03 | Phase 3 | Complete |
-| CARD-01 | Phase 4 | Pending |
+| CARD-01 | Phase 4 | Complete |
 | CARD-02 | Phase 4 | Pending |
 | CARD-03 | Phase 4 | Pending |
 | CARD-04 | Phase 4 | Pending |
