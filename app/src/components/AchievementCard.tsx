@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import type { Achievement } from '@/types/achievement';
-import { RARITY_COLORS, RARITY_HEX, CATEGORY_CONFIG, CATEGORY_HEX, resolveIcon } from '@/types/achievement';
+import { RARITY_COLORS, RARITY_HEX, CATEGORY_CONFIG, resolveIcon } from '@/types/achievement';
 import { Check, Trash2, Edit, Lock } from 'lucide-react';
 import { formatDistanceToNow } from 'date-fns';
 import { es } from 'date-fns/locale';
@@ -68,21 +68,42 @@ export function AchievementCard({ achievement, onToggle, onDelete, onEdit }: Ach
         <div className={`absolute -bottom-1 -left-1 w-2 h-2 ${colors.border.replace('border-', 'bg-')}`} />
         <div className={`absolute -bottom-1 -right-1 w-2 h-2 ${colors.border.replace('border-', 'bg-')}`} />
 
-        <div className="flex items-start gap-4">
-          {/* Icon container — 64px with Lock badge overlay for locked state */}
-          <div className={`
-            relative w-16 h-16 flex items-center justify-center flex-shrink-0
-            border-2 ${colors.border} ${colors.bg}
-            ${isLocked ? 'opacity-40' : ''}
-          `}>
-            {LucideIcon
-              ? <LucideIcon className={`w-8 h-8 ${colors.text}`} strokeWidth={1.5} />
-              : <span className="text-3xl">{achievement.icon}</span>
-            }
-            {isLocked && (
-              <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-game-card border border-game-border flex items-center justify-center">
-                <Lock className="w-3 h-3 text-game-text-secondary" />
-              </div>
+        <div className="flex items-start gap-3">
+          {/* Left column: icon + chips */}
+          <div className="flex flex-col items-center gap-1.5 flex-shrink-0 w-16">
+            {/* Icon container — 64px with Lock badge overlay for locked state */}
+            <div className={`
+              relative w-16 h-16 flex items-center justify-center
+              border-2 ${colors.border} ${colors.bg}
+              ${isLocked ? 'opacity-40' : ''}
+            `}>
+              {LucideIcon
+                ? <LucideIcon className={`w-8 h-8 ${colors.text}`} strokeWidth={1.5} />
+                : <span className="text-3xl">{achievement.icon}</span>
+              }
+              {isLocked && (
+                <div className="absolute -bottom-1.5 -right-1.5 w-5 h-5 bg-game-card border border-game-border flex items-center justify-center">
+                  <Lock className="w-3 h-3 text-game-text-secondary" />
+                </div>
+              )}
+            </div>
+
+            {/* Rarity chip */}
+            <span className={`w-full text-center text-[10px] leading-tight px-1 py-0.5 border-2 font-mono ${colors.border} ${colors.bg} ${colors.text}`}>
+              {RARITY_COLORS[achievement.rarity].name.toUpperCase()}
+            </span>
+
+            {/* Category chip */}
+            <span className={`w-full text-center text-[10px] leading-tight px-1 py-0.5 border-2 font-mono flex items-center justify-center gap-0.5 ${catConfig.border} ${catConfig.bg} ${catConfig.text}`}>
+              <catConfig.Icon className="w-2.5 h-2.5" />
+              {catConfig.name.toUpperCase()}
+            </span>
+
+            {/* Relative time — only if completed with a timestamp */}
+            {relativeTime && (
+              <span className="text-[10px] text-game-text-secondary/60 font-mono text-center leading-tight">
+                {relativeTime}
+              </span>
             )}
           </div>
 
@@ -95,32 +116,11 @@ export function AchievementCard({ achievement, onToggle, onDelete, onEdit }: Ach
               {achievement.title}
             </h3>
             <p className={`
-              text-sm mb-2 line-clamp-2
+              text-sm line-clamp-3
               ${isCompleted ? 'text-game-text-secondary' : 'text-game-text-secondary/60'}
             `}>
               {achievement.description}
             </p>
-
-            {/* Metadata row: rarity chip + category chip + relative time */}
-            <div className="flex items-center gap-2 flex-wrap">
-              {/* Rarity chip */}
-              <span className={`text-xs px-2 py-1 border-2 font-mono ${colors.border} ${colors.bg} ${colors.text}`}>
-                {RARITY_COLORS[achievement.rarity].name.toUpperCase()}
-              </span>
-
-              {/* Category chip */}
-              <span className={`text-xs px-2 py-1 border-2 font-mono flex items-center gap-1 ${catConfig.border} ${catConfig.bg} ${catConfig.text}`}>
-                <span style={{ color: CATEGORY_HEX[achievement.category] }}><catConfig.Icon className="w-3 h-3" /></span>
-                {catConfig.name.toUpperCase()}
-              </span>
-
-              {/* Relative time — only if completed with a timestamp */}
-              {relativeTime && (
-                <span className="text-xs text-game-text-secondary/60 font-mono">
-                  {relativeTime}
-                </span>
-              )}
-            </div>
           </div>
 
           {/* Actions column */}
